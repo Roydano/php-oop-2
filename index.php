@@ -9,18 +9,19 @@ BONUS: Gestite eventuali eccezioni che si possono verificare (es: carta di credi
     require_once 'Premium.php';
     require_once 'Product.php';
 
+    //settaggio utenti
     $utente1 = new User('Danilo', 'D\'Alessandro');
     $utente2 = new Premium('Arsenio', 'Lupin');
     $utente3 = new Premium('Willy', 'Wonka');
 
+    //settaggio prodotti
     $product1 = new Product('Lavatrice', 299);
     $product2 = new Product('Pc', 599);
     $product3 = new Product('Note 20', 999);
 
-    var_dump($utente1);
-    var_dump($utente2);
-    var_dump($utente3);
+    
 
+    //acquisto utenti
     $utente1->buy($product1);
     $utente1->buy($product2);
 
@@ -29,6 +30,15 @@ BONUS: Gestite eventuali eccezioni che si possono verificare (es: carta di credi
     $utente2->buy($product3);
 
     $utente3->buy($product3);
+
+    //inserimento dati carta di credito
+    $utente1->setPayment('1234567891234567', '12/24', '402');
+    $utente2->setPayment('4569821536214752', '01/21', '825');
+    $utente3->setPayment('3254156980012356', '02/22', '710');
+    
+    // var_dump($utente1);
+    // var_dump($utente2);
+    // var_dump($utente3);
     
 ?>
 

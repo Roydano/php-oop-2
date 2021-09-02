@@ -1,6 +1,11 @@
 <?php
 
+require_once 'CreditCard.php';
+
+
 class User{
+    use CreditCard;
+
     protected $name;
     protected $surname;   
     protected $shoppingCart = [];
