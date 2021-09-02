@@ -32,10 +32,27 @@ BONUS: Gestite eventuali eccezioni che si possono verificare (es: carta di credi
     $utente3->buy($product3);
 
     //inserimento dati carta di credito
-    $utente1->setPayment('1234567891234567', '12/24', '402');
-    $utente2->setPayment('4569821536214752', '01/21', '825');
-    $utente3->setPayment('3254156980012356', '02/22', '710');
-    
+    try {
+        $utente1->setPayment('2501469832012357', 'ciao', '402');
+    } catch (Exception $e) {
+        echo 'Errore: ' . $e->getMessage();
+    }
+
+    // $utente1->setPayment('1234567891234567', 2024, '402');
+    try {
+        $utente2->setPayment('4569821536214752', 2020, '825');
+    } catch (Exception $e) {
+        echo 'Errore: ' . $e->getMessage();
+    }
+    // $utente2->setPayment('4569821536214752', 2021, '825');
+
+    try {
+        $utente3->setPayment('3254156980012356', 2022, '710');
+    } catch (Exception $e) {
+        echo 'Errore: ' . $e->getMessage();
+    }
+    // $utente3->setPayment('3254156980012356', 2022, '710');
+
     // var_dump($utente1);
     // var_dump($utente2);
     // var_dump($utente3);
@@ -55,21 +72,21 @@ BONUS: Gestite eventuali eccezioni che si possono verificare (es: carta di credi
         <?php echo 'Nome Utente: ' . $utente1->getFullName(); ?>
     </h2>
     <p>
-        <?php echo $utente1->totalCart() . '€'; ?>
+        Totale della spesa: <?php echo $utente1->totalCart() . '€'; ?>
     </p>
 
     <h2>
         <?php echo 'Nome Utente: ' . $utente2->getFullName(); ?>
     </h2>
     <p>
-        <?php echo $utente2->totalCart() . '€'; ?>
+        Totale della spesa: <?php echo $utente2->totalCart() . '€'; ?>
     </p>
 
     <h2>
         <?php echo 'Nome Utente: ' . $utente3->getFullName(); ?>
     </h2>
     <p>
-        <?php echo $utente3->totalCart() . '€'; ?>
+       Totale della spesa: <?php echo $utente3->totalCart() . '€'; ?>
     </p>
 </body>
 </html>
